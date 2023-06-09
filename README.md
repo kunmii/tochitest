@@ -38,18 +38,19 @@ The final look of the app as seen via kubernetes port 8080, to be precise: http:
 
 <h2>Details of the App</h2>
 If you have not used a .Net API before, walk with me, lets try it out.
-<p> For creating, select the Post and click "try it out".
+<ul>
+  <li><p> For creating, select the Post and click "try it out".</li>
   ![image](https://github.com/Toch-vybe/ReventBookings/assets/60288017/f07afb88-3526-426e-961b-3a5b7ad4af08)
-<p>Edit **only** the name and message value with placeholder of "string" and hit execute. You will get a 200 status code with an output like below:
+<li><p>Edit **only** the name and message value with placeholder of "string" and hit execute. You will get a 200 status code with an output like below:<li>
   ![image](https://github.com/Toch-vybe/ReventBookings/assets/60288017/8ca8b4c8-840c-4e2b-8a36-f8a85fb965af)
   
-<p> To view existing booking, select the View and click "try it out" same as the previous step. Put the Id you get in the previous step, and you should get an output similar to the image above.
+<li><p> To view existing booking, select the View and click "try it out" same as the previous step. Put the Id you get in the previous step, and you should get an output similar to the image above.</li>
   
-<p> For updating a booking, input the ID and fill the response body with details. You output should be as below:
+<li><p> For updating a booking, input the ID and fill the response body with details. You output should be as below:</li>
   ![image](https://github.com/Toch-vybe/ReventBookings/assets/60288017/7a22ca97-50b3-45b4-bef0-4ad813871690)
 If you view the booking again you would get the update version.
   
-<p>For deleting a booking, just specifiy the ID and it will be deleted with a status code of 200
+sli><p>For deleting a booking, just specifiy the ID and it will be deleted with a status code of 200</li>
 
 
 
