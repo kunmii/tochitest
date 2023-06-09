@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: reventbookings-deployment
   annotations:
-    kubernetes.io/change-cause: "Initial deployment"
+    kubernetes.io/change-cause: "Updating docker image from v1 to v2"
 spec:
   replicas: 4
   selector:
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: reventbookings
-          image: txchi/reventbookings:v1
+          image: txchi/reventbookings:v2
           ports:
             - containerPort: 80
               name: http-web-api
