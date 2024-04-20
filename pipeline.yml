@@ -43,6 +43,7 @@ jobs:
         $(Build.BuildId)
 
   - task: AzureRmWebAppDeployment@4
+    displayName: 'Deploy to App Service'
     inputs:
       azureSubscription: '$(azureSubscription)'
       resourceGroupName: '$(resourceGroupName)'
