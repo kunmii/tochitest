@@ -13,7 +13,7 @@ variables:
   solution: './ReventBookings.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  WebAppName: 'pipelinetesting'
+  WebAppName: 'pipelinetestingg'
   resourceGroupName: 'pipelinetest'
   location: 'UK South'
   azureSubscription: 'MSDN Plaftorm Subscriptions'
@@ -42,11 +42,11 @@ jobs:
       tags: |
         $(Build.BuildId)
 
-  # - task: AzureRmWebAppDeployment@4
-  #   inputs:
-  #     azureSubscription: '$(azureSubscription)'
-  #     resourceGroupName: '$(resourceGroupName)'
-  #     WebAppName: '$(WebAppName)'
-  #     package: '$(Build.ArtifactStagingDirectory)'
-  #     deploymentMethod: 'container'
-  #     containerImageName: 'flowmono.azurecr.io/aspose-service:$(Build.BuildId)'
+  - task: AzureRmWebAppDeployment@4
+    inputs:
+      azureSubscription: '$(azureSubscription)'
+      resourceGroupName: '$(resourceGroupName)'
+      WebAppName: '$(WebAppName)'
+      package: '$(Build.ArtifactStagingDirectory)'
+      deploymentMethod: 'container'
+      containerImageName: 'kunmipipelinetest.azurecr.io/testing:$(Build.BuildId)'
