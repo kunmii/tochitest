@@ -36,7 +36,7 @@ jobs:
     displayName: 'Build and push Docker image'
     inputs:
       containerRegistry: '$(dockerRegistryEndpoint)'
-      repository: 'kunmipipelinetest.azurecr.io/testing'
+      repository: 'kunmipipelinetest/testing'
       command: 'buildAndPush'
       Dockerfile: './ReventBookings/Dockerfile'
       tags: |
