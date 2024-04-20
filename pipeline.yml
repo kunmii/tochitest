@@ -16,7 +16,7 @@ variables:
   WebAppName: 'pipelinetestingg'
   resourceGroupName: 'pipelinetest'
   location: 'UK South'
-  azureSubscription: 'MSDN Plaftorm Subscriptions'
+  azureSubscription: 'tochipipelinetest'
   dockerRegistryEndpoint: 'kunmipipelinetest'
 
 jobs:
