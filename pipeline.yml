@@ -1,0 +1,52 @@
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - ReventBookings
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  solution: './ReventBookings.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  WebAppName: 'pipelinetesting'
+  resourceGroupName: 'pipelinetest'
+  location: 'UK South'
+  azureSubscription: 'MSDN Plaftorm Subscriptions'
+  dockerRegistryEndpoint: 'kunmipipelinetest'
+
+jobs:
+- job: Build
+  displayName: 'Build and Deploy with Docker'
+  steps:
+  - checkout: self
+    fetchDepth: 2
+
+  - task: UseDotNet@2
+    displayName: 'Use .NET Core sdk'
+    inputs:
+      version: '6.x'
+      installationPath: $(Agent.ToolsDirectory)/dotnet
+
+  - task: Docker@2
+    displayName: 'Build and push Docker image'
+    inputs:
+      containerRegistry: '$(dockerRegistryEndpoint)'
+      repository: 'kunmipipelinetest.azurecr.io/'
+      command: 'buildAndPush'
+      Dockerfile: './ReventBookings/Dockerfile'
+      tags: |
+        $(Build.BuildId)
+
+  # - task: AzureRmWebAppDeployment@4
+  #   inputs:
+  #     azureSubscription: '$(azureSubscription)'
+  #     resourceGroupName: '$(resourceGroupName)'
+  #     WebAppName: '$(WebAppName)'
+  #     package: '$(Build.ArtifactStagingDirectory)'
+  #     deploymentMethod: 'container'
+  #     containerImageName: 'flowmono.azurecr.io/aspose-service:$(Build.BuildId)'
