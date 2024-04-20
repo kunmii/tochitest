@@ -36,18 +36,18 @@ jobs:
     displayName: 'Build and push Docker image'
     inputs:
       containerRegistry: '$(dockerRegistryEndpoint)'
-      repository: 'kunmipipelinetest/testing'
+      repository: 'kunmipipelinetest.azurecr.io/testing'
       command: 'buildAndPush'
       Dockerfile: './ReventBookings/Dockerfile'
       tags: |
         $(Build.BuildId)
 
-  - task: AzureRmWebAppDeployment@4
-    displayName: 'Deploy to App Service'
-    inputs:
-      azureSubscription: '$(azureSubscription)'
-      resourceGroupName: '$(resourceGroupName)'
-      WebAppName: '$(WebAppName)'
-      package: '$(Build.ArtifactStagingDirectory)'
-      deploymentMethod: 'container'
-      containerImageName: 'kunmipipelinetest.azurecr.io/testing:$(Build.BuildId)'
+  # - task: AzureRmWebAppDeployment@4
+  #   displayName: 'Deploy to App Service'
+  #   inputs:
+  #     azureSubscription: '$(azureSubscription)'
+  #     resourceGroupName: '$(resourceGroupName)'
+  #     WebAppName: '$(WebAppName)'
+  #     package: '$(Build.ArtifactStagingDirectory)'
+  #     deploymentMethod: 'container'
+  #     containerImageName: 'kunmipipelinetest.azurecr.io/testing:$(Build.BuildId)'
