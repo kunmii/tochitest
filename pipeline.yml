@@ -42,12 +42,12 @@ jobs:
       tags: |
         $(Build.BuildId)
 
-  # - task: AzureRmWebAppDeployment@4
-  #   displayName: 'Deploy to App Service'
-  #   inputs:
-  #     azureSubscription: '$(azureSubscription)'
-  #     resourceGroupName: '$(resourceGroupName)'
-  #     WebAppName: '$(WebAppName)'
-  #     package: '$(Build.ArtifactStagingDirectory)'
-  #     deploymentMethod: 'container'
-  #     containerImageName: 'kunmipipelinetest.azurecr.io/testing:$(Build.BuildId)'
+  - task: AzureRmWebAppDeployment@4
+    displayName: 'Deploy to App Service'
+    inputs:
+      azureSubscription: '$(azureSubscription)'
+      resourceGroupName: '$(resourceGroupName)'
+      WebAppName: '$(WebAppName)'
+      package: '$(Build.ArtifactStagingDirectory)'
+      deploymentMethod: 'container'
+      containerImageName: 'kunmipipelinetest.azurecr.io/testing:$(Build.BuildId)'
